@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Flight Booking</h1>
+        <div class="search-form">
+            <h2>Search for Flights</h2>
+            <form id="flightSearchForm">
+                <div>
+                    <label for="origin">Origin:</label>
+                    <input type="text" id="origin" name="origin" required>
+                </div>
+                <div>
+                    <label for="destination">Destination:</label>
+                    <input type="text" id="destination" name="destination" required>
+                </div>
+                <div>
+                    <label for="departureDate">Departure Date:</label>
+                    <input type="date" id="departureDate" name="departureDate" required>
+                </div>
+                <div>
+                    <label for="returnDate">Return Date:</label>
+                    <input type="date" id="returnDate" name="returnDate">
+                </div>
+                <button type="submit" class="search-button">Search</button>
+            </form>
+        </div>
+        <div id="results">
+            <!-- Display search results here -->
+        </div>
+    </div>
+    <script>
+        // JavaScript to handle form submission
+        document.getElementById("flightSearchForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Retrieve form data
+            const origin = document.getElementById("origin").value;
+            const destination = document.getElementById("destination").value;
+            const departureDate = document.getElementById("departureDate").value;
+            const returnDate = document.getElementById("returnDate").value;
+
+            // You can perform AJAX requests here to fetch flight data
+            // and display the results in the "results" div
+            // For simplicity, we'll just display a message here.
+            const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = `
+                <h2>Search Results</h2>
+                <p>Flights from ${origin} to ${destination} on ${departureDate}</p>
+                <p>Return Date: ${returnDate}</p>
+                <p>No real flight data available in this demo.</p>
+            `;
+        });
+    </script>
+
+
+</body>
+</html>
